@@ -1,12 +1,9 @@
-## 🚆 Train Seat Booking App (ZappHire) Problem
-
----
+##  Train Seat Booking App (ZappHire) Problem
 
 ### 🔧 Tech Stack
 
 - ⚛️ [React.js (Vite)](https://vitejs.dev/)
 - 💨 [Tailwind CSS](https://tailwindcss.com/)
----
 
 ### 📦 Installation
 
@@ -30,3 +27,6 @@
    - Visit: `http://localhost:5173`
 
 ---
+
+### 📸 Demo 
+![App Screenshot](./public/project-demo-screenshot.png)
