@@ -5,6 +5,10 @@
 - ⚛️ [React.js (Vite)](https://vitejs.dev/)
 - 💨 [Tailwind CSS](https://tailwindcss.com/)
 
+### 🚀 Deployed Website on AWS
+
+- 🌐 <a href="http://ec2-54-152-88-119.compute-1.amazonaws.com/" target="_blank" rel="noopener noreferrer">Open Deployed Website</a>
+
 ### 📦 Installation
 
 1. **Clone the repository**
