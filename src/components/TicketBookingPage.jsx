@@ -70,25 +70,25 @@ const findClosestChunk = (availableSeats, count) => {
 const TicketBookingPage = () => {
   const [seats, setSeats] = useState(generateInitialSeats());
   const [totalBooked, setTotalBooked] = useState(0);
-  const [lastBookedSeats, setLastBookedSeats] = useState([])
+  const [lastBookedSeats, setLastBookedSeats] = useState([]);
   const bookTickets = (requestedCount) => {
-    if(isNaN(requestedCount)){
-      alert("Invalid input, please enter a positive integer.")
-      return
+    if (isNaN(requestedCount)) {
+      alert("Invalid input, please enter a positive integer.");
+      return;
     }
     if (requestedCount > MAX_BOOKING_LIMIT) {
       alert(
         `Can't booked more than ${MAX_BOOKING_LIMIT} tickets at a time !!!`
       );
-      return
+      return;
     }
     if (requestedCount <= 0) {
       alert(`Can only book tickets in range 1-${MAX_BOOKING_LIMIT}`);
-      return
+      return;
     }
     if (requestedCount > TOTAL_SEATS - totalBooked) {
       alert("Request tickets is more than the available tickets !!!!");
-      return
+      return;
     }
     setSeats((prevSeats) => {
       const newSeats = prevSeats.map((row) => [...row]);
@@ -99,18 +99,24 @@ const TicketBookingPage = () => {
         seatsToBook = findClosestChunk(availableSeats, requestedCount);
       }
       if (seatsToBook) {
-        setLastBookedSeats(seatsToBook.map(([row, col]) => row * SEATS_PER_ROW + col + 1))
+        setLastBookedSeats(
+          seatsToBook.map(([row, col]) => row * SEATS_PER_ROW + col + 1)
+        );
         seatsToBook.forEach(([row, col]) => {
           newSeats[row][col] = true;
         });
       }
       return newSeats;
     });
-    alert(`Booked ${requestedCount} tickets successfully.`)
+    alert(`Booked ${requestedCount} tickets successfully.`);
     setTotalBooked((prev) => prev + requestedCount);
   };
 
-  const clearAllBookings = () => setSeats(generateInitialSeats());
+  const clearAllBookings = () => {
+    setSeats(generateInitialSeats());
+    setTotalBooked(0);
+    setLastBookedSeats([]);
+  };
 
   return (
     <div>
@@ -127,7 +133,7 @@ const TicketBookingPage = () => {
           maxLimit={MAX_BOOKING_LIMIT}
           onReset={clearAllBookings}
           totalSeats={TOTAL_SEATS}
-          lastBookedSeats = {lastBookedSeats}
+          lastBookedSeats={lastBookedSeats}
         />
       </div>
     </div>

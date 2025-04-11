@@ -17,14 +17,14 @@ const SeatBooking = ({
           <h3 className="font-semibold text-lg tracking-wide">Book seats</h3>
           <div className="flex gap-1">
             {lastBookedSeats.map((seatNumber) => (
-              <Seat seatNum={seatNumber} bookingStatus={true} />
+              <Seat seatNum={seatNumber} bookingStatus={true} key = {seatNumber}/>
             ))}
           </div>
         </div>
         <div className="flex gap-2 w-full justify-between">
           <input
             className="w-md border focus:outline-none focus:ring-2 focus:border-0 rounded-md px-4 py-2 text-sm"
-            onChange={(e) => setBookingCount(parseInt(e.target.value))}
+            onChange={(e) => setBookingCount(e.target.value)}
             type="number"
             min={1}
             max={Math.min(maxLimit, totalSeats - bookedSeats)}
